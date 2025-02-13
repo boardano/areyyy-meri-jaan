@@ -101,10 +101,11 @@
     <button class="next-button" onclick="turnPage()">Turn Page</button>
     <button class="i-love-you-button" id="loveButton" onclick="increaseLove()">I love you, too</button>
     
-    <audio id="backgroundMusic" autoplay loop>
+    <audio id="backgroundMusic" loop>
         <source src="khairiyat.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    <button onclick="document.getElementById('backgroundMusic').play()">Play Song</button>
     
     <script>
         let currentPage = 0;
