@@ -5,39 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Love</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
         body {
             background-color: #ffe6f2;
             text-align: center;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Dancing Script', cursive;
             overflow: hidden;
             position: relative;
             height: 100vh;
         }
-        .floating-hearts {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            animation: floatUp 5s linear infinite;
-        }
-        @keyframes floatUp {
-            from {
-                transform: translateY(100vh);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh);
-                opacity: 0;
-            }
-        }
         .book-container {
             position: relative;
-            width: 400px;
-            height: 500px;
+            width: 450px; /* Increased size */
+            height: 600px; /* Increased size */
             margin: 20px auto;
             perspective: 1500px;
         }
@@ -60,6 +40,10 @@
             transform-origin: left;
             transition: transform 1s ease-in-out;
             backface-visibility: hidden;
+            padding: 20px;
+            font-size: 16px;
+            box-sizing: border-box;
+            overflow: hidden;
         }
         .page img {
             max-width: 90%;
@@ -67,20 +51,27 @@
             border-radius: 10px;
         }
         .page p {
-            font-size: 18px;
+            font-size: 14px;
             padding: 10px;
             text-align: center;
+            margin: 0;
+            line-height: 1.5; /* Adjusted line height */
         }
-        .page:nth-child(1) { 
-            background: linear-gradient(135deg, #8B0000, #FF6347); 
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-            z-index: 5;
-        }
-        .page:nth-child(2) { background: #ffccd5; z-index: 4; }
-        .page:nth-child(3) { background: #ffc2d1; z-index: 3; }
-        .page:nth-child(4) { background: #ffb3c1; z-index: 2; }
+        .page:nth-child(1) { background: linear-gradient(135deg, #8B0000, #FF6347); color: white; font-weight: bold; font-size: 22px; z-index: 15; }
+        .page:nth-child(2) { background: #ffccd5; z-index: 14; }
+        .page:nth-child(3) { background: #ffc2d1; z-index: 13; }
+        .page:nth-child(4) { background: #ffb3c1; z-index: 12; }
+        .page:nth-child(5) { background: #ffa6b7; z-index: 11; }
+        .page:nth-child(6) { background: #ff94a4; z-index: 10; }
+        .page:nth-child(7) { background: #ff8091; z-index: 9; font-size: 12px; line-height: 1.4; } /* Adjusted font size and line height */
+        .page:nth-child(8) { background: #ff6d7f; z-index: 8; }
+        .page:nth-child(9) { background: #ff5a6c; z-index: 7; }
+        .page:nth-child(10) { background: #ff4759; z-index: 6; }
+        .page:nth-child(11) { background: #ff3345; z-index: 5; }
+        .page:nth-child(12) { background: #ff2233; z-index: 4; }
+        .page:nth-child(13) { background: #ff1122; z-index: 3; }
+        .page:nth-child(14) { background: #ff0011; z-index: 2; }
+        .page:nth-child(15) { background: #ff0000; z-index: 1; }
         .page.turn {
             transform: rotateY(-180deg);
         }
@@ -94,9 +85,11 @@
             border: none;
             border-radius: 10px;
         }
-        .i-love-you-button {
+        .love-button {
             display: none;
-            margin-top: 20px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
             padding: 10px 15px;
             font-size: 16px;
             cursor: pointer;
@@ -105,89 +98,291 @@
             border: none;
             border-radius: 10px;
         }
+        @keyframes emoji-shower {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+        .emoji {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            animation: emoji-shower 4s linear infinite;
+        }
     </style>
 </head>
 <body>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="khairiyat.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <h1>I Love You ❤️</h1>
-    <p>My heart beats for you every second...</p>
-    
-    <div class="floating-hearts" id="floatingHearts"></div>
-    
+    <p>Happy Valentine's day, Meri pyaari mimi</p>
     <div class="book-container">
         <div class="book" id="book">
             <div class="page" id="page1">
                 <p>Meri Pyaari, Mimi💟</p>
             </div>
             <div class="page" id="page2">
-                <p>Page 1: The day we met, my heart knew you were special...</p>
-                <img src="your-image1.jpg" alt="Us together">
+                <p>So, miss darshini, this’s our….<br>
+I mean, not our first, though…<br>
+Coz, I’ve been in some deep, not able to comprehend, wala love….<br>
+since, the last two valentine’s day<br>
+but, still…<br><br>
+
+let’s consider this one, as the official one.<br>
+And, also…<br>
+Thanks for saying, yes, to go on a date, with me.<br><br>
+
+You know, baby…<br>
+I’ve played, the moment, where we both get married, in my head, a thousand times (MAYBE, EVEN MORE THAN THAT).<br>
+And, I feel like, this valentines day, might be a step ahead towards that, moment.<br><br>
+
+Where, I’ll get to hold your hand, in front of the very parents, family and the society, you’re afraid of.<br><br>
+
+Today, morning, I just realized, after you hanged up the call.<br>
+Words will never be enough, Not for you, Not for this.<br>
+</p>
             </div>
             <div class="page" id="page3">
-                <p>Page 2: Every moment with you feels like magic...</p>
-                <img src="your-image2.jpg" alt="Sweet memory">
+                <p>Which, makes me a man of action 😉.<br>
+On life, work, love and bed, too 😏😏😏.<br><br>
+
+How do I even, begin to explain.<br>
+I know, you never used to believe in love and all.<br><br>
+
+Even, I didn’t too.<br>
+When I was a kid, it never made sense, to me, too.<br><br>
+
+Which’s why, I started reading books.<br>
+And, I know, love’s nothing just a series of chemical reaction in brain.<br>
+The dopamine, oxytocin, serotonin, mixes and works together<br>
+firing, neurotransmitters, everywhere<br>
+at the right moment, at the right time, making your heart race, your palm sweat, your pupils dilate…<br>
+making guts, ache, everytime, you part ways, from the very person, who made you feel this, way.<br><br>
+
+I know, it’s evolutionary, designed to ensure survival, to keep us bonded, to make us choose someone and never let go.<br>
+</p>
             </div>
             <div class="page" id="page4">
-                <p>Page 3: I promise to love you forever...</p>
-                <img src="your-image3.jpg" alt="Together always">
+                <p>But, I don’t think, that’s what it all is?<br>
+If it was just, just chemicals, just science, then why do I feel you in places my neurons don’t reach?<br>
+Why does my soul recognize you in a way no MRI could ever explain?<br>
+Why does my heart, this mere biological pump, ache for you in a way no textbook or book, I’ve ever read, could define.<br><br>
+
+<strong>I love you, like a biologist, does.</strong><br>
+Who knows, it’s all chemicals and neurons, but still, completely struck by an unexplainable factor, of life and nature and divine, stuck with me.<br>
+Which’s love.<br>
+Which’s you.<br>
+</p>
+            </div>
+            <div class="page" id="page5">
+                <p><strong>I love you, like a philosopher, does.</strong><br>
+Not just, as vague as a feeling<br>
+but, as truth, itself.<br><br>
+
+One that has existed long before us, and will exist long after.<br>
+Plato, once said that souls were split in two, wandering the earth in search of their missing half.<br>
+And, if that’s true, babess…<br>
+then, you, are my other half<br>
+the piece, I never knew was missing, until I found you.<br><br>
+
+Aristotle believed that love is composed of a single soul inhabiting, two bodies.<br>
+And sometimes, when I look into your eyes, I swear I see my reflection - not just in the way, I look, but in the way I feel, the way I exist.<br>
+Like we intertwined beyond flesh, beyond thought, beyond time, itself, baby.<br><br>
+
+And, I’ve read, Rumi’s words too:<br>
+"The minute I heard my first love story, I started looking for you, not knowing how blind that was.<br>
+Lovers don’t finally meet somewhere,<br>
+they’re in each other, all along."<br>
+</p>
+            </div>
+            <div class="page" id="page6">
+                <p>May be, That’s why, I’ve loved you, even before I even knew, how it feels to be, around you.<br>
+Before seeing you, in person.<br>
+Before getting to touch you, feel you, or even be, in the same physical space, as yours.<br>
+Coz, even, you, behind a screen, felt like, home.<br>
+Like something sacred.<br>
+Like, something I cannot and should not, ever be explained, only felt.<br>
+A truth, to be felt.<br>
+</p>
+            </div>
+            <div class="page" id="page7">
+                <p><strong>I love you, like a writer does…</strong><br>
+with the desperation of someone, trying to capture something too vast, too infinite, too aching to fit, into mere letters on a page<br>
+
+Like, Neruda, once wrote…<br>
+”I love you, as a certain dark things are to be loved, in secret, between the shadow and the soul”<br>
+
+Because loving you isn’t just an emotion, baby<br>
+It’s a quiet force, something that exists, in the spaces, between my words, in the pauses between my breaths, in the silence that still feels full because you are in it…<br>
+
+There’s a line, which Fitzgerald, said…<br>
+”I wish, I had done everything on earth with you”<br>
+These words, are the only thought, I carry with your name, in every breath of mine, everyday.<br>
+I feel that.<br>
+I feel, what he said.<br>
+I want to walk, every street<br>
+Touch every raindrop<br>
+Feel every sunrise, with you<br>
+
+If time, is a book<br>
+I want every chapter<br>
+Every page<br>
+Every word to be about you, with you, for you.<br>
+
+And, I just wanna say, one more thing, as a writer<br>
+And, I don’t want you to stop me, from ever doing that…<br>
+As Jane Austen, wrote…<br>
+
+<strong>YOU MUST ALLOW ME TO TELL YOU HOW ARDENTLY I ADMIRE AND LOVE YOU</strong><br>
+
+Because, I am sorry, my love for you is abundant.<br>
+I’m possessed, obsessed and desperate<br>
+While, being calm, soothing, peace and at comfort, at the same time<br>
+By the love, I have for you.<br>
+
+Sometimes, this love for you, burns<br>
+Sometimes, it builds.<br>
+Sometimes, rewrites me over and over and over and over and over<br>
+Until, I am nothing<br>
+but, yours.<br>
+</p>
+            </div>
+            <div class="page" id="page8">
+                <p><strong>I love you as a poet…</strong><br>  
+And, I don’t wanna quote, any poets.<br>  
+Coz, I no more have to.<br>  
+Coz, I already have the poem, that I’ve been waiting, all my life, to write.<br>  
+You’re the poetry, I’ve always been waiting to write.<br><br>  
+
+But, on this day, of lovers.<br>  
+If I’ve to recite a poem, for you.<br>  
+I’d just love to recite, this to you.<br>  
+Which, I’ll do, on tomorrow’s call. 😅😅😅 (DON’T KNOW, HOW TO ADD IT, NOT SO GOOD AT HTML, DIDN’T TAKE, CS IN 12th)
+<br><br>  </p>
+            </div>
+            <div class="page" id="page9">
+                <p><strong>I love you as an officer does…</strong><br>  
+May be, I am not, one, right now….<br>  
+But, Hopefully, soon, I’ll be one…<br>  
+And, when I stand in that uniform, when the weight of duty and honor rests on my shoulders<br>  
+know that beneath all of it, beneath the discipline, the steel, the unwavering spirit<br>  
+there is you<br>  
+There, is always you.<br><br>  
+
+Because, even when I serve my country, my oath, my people<br>  
+I will still, serve you<br>  
+I will still, be yours<br>  
+All yours.<br><br>  
+
+And, if ever comes a day, when the world demands all of me<br>  
+when I am pulled into the line of fire<br>  
+when my body is weary<br>  
+when my spirit is tested<br>  
+Know, that…<br><br>  
+
+I will, always find my way back to you<br>  
+Coz, your photo, is always in my purse.<br>  
+Showing me the direction to the beautiful eyes.<br>  
+To my beautiful eyes<br>  
+To my love<br>  
+</p>
+            </div>
+            <div class="page" id="page10">
+                <p>So, on this day.<br>
+I just wanted you to know<br>
+I love you<br>
+With the fire of a soldier<br>
+who completely surrenders to you<br><br>
+
+I love you with the wonder of a biologist…<br>
+who understands the science but still marvels at the magic<br><br>
+
+I love with the conviction of a philosopher<br>
+with all truth and no lies<br>
+coz, you’re my truth<br><br>
+
+I love you, with the desperation of a writer<br>
+who spends his whole life, trying to capture something too vast for words<br><br>
+
+I love you, with the soul of a poet<br>
+not because words can define it<br>
+but because they, never can<br><br>
+
+Because you are the poetry, I’ve been searching for all my life<br>
+the one, I don’t need to write<br>
+because, you exist.
+</p>
+            </div>
+            <div class="page" id="page11">
+                <p>Once, again<br>
+Love you, darshu ma…</p>
+            </div>
+            <div class="page" id="page12">
+                <p>Love you, meri pyaari mimi</p>
+            </div>
+            <div class="page" id="page13">
+                <p>Love you, baby</p>
+            </div>
+            <div class="page" id="page14">
+                <p>Love you, Kanmani</p>
+            </div>
+            <div class="page" id="page15">
+                <p>Love you, Ms Ram, from Mr Darshini</p>
             </div>
         </div>
     </div>
     <button class="next-button" onclick="turnPage()">Turn Page</button>
-    <button class="i-love-you-button" id="loveButton" onclick="increaseLove()">I love you, too</button>
-    
-    <audio id="backgroundMusic" loop autoplay>
-        <source src="khairiyat.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    
+    <button class="love-button" id="loveButton" onclick="incrementLove()">I love you too ❤️</button>
     <script>
-        let currentPage = 0;
-        let loveCount = 1;
-        const pages = document.querySelectorAll(".page");
-        const loveButton = document.getElementById("loveButton");
-        const floatingHearts = document.getElementById("floatingHearts");
+        let currentPage = 1;
+        const totalPages = document.querySelectorAll('.page').length;
+        let loveCount = 2;
 
         function turnPage() {
-            if (currentPage < pages.length - 1) {
-                pages[currentPage].classList.add("turn");
+            if (currentPage < totalPages) {
+                document.getElementById(`page${currentPage}`).classList.add('turn');
                 currentPage++;
-                if (currentPage === pages.length - 1) {
-                    loveButton.style.display = "block";
+                if (currentPage === totalPages) {
+                    document.getElementById('loveButton').style.display = 'block';
                 }
             } else {
-                resetBook();
+                
+                for (let i = 1; i <= totalPages; i++) {
+                    document.getElementById(`page${i}`).classList.remove('turn');
+                }
+                currentPage = 1;
+                document.getElementById('loveButton').style.display = 'none';
+                loveCount = 2;
             }
         }
 
-        function resetBook() {
-            pages.forEach((page) => page.classList.remove("turn"));
-            currentPage = 0;
-            loveButton.style.display = "none";
-        }
-
-        function increaseLove() {
-            loveCount++;
-            if (loveCount >= 11) {
-                loveButton.innerText = "I love you, infinity";
+        function incrementLove() {
+            const loveButton = document.getElementById('loveButton');
+            if (loveCount <= 11) {
+                loveButton.innerText = `I love you ${loveCount} ❤️`;
+                loveCount++;
             } else {
-                loveButton.innerText = `I love you, ${loveCount}`;
-            }
-            if (navigator.vibrate) {
-                navigator.vibrate(100);
+                loveButton.innerText = `Love you too infinity ❤️`;
+                startEmojiShower();
             }
         }
 
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerText = Math.random() > 0.5 ? "❤️" : "😘";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 3 + 3 + "s";
-            floatingHearts.appendChild(heart);
-            setTimeout(() => heart.remove(), 5000);
-        }
+        function startEmojiShower() {
+            const emojis = ['❤️', '😘', '😍', '🥰', '💖', '💘', '💕', '💞', '💓', '💗'];
+            for (let i = 0; i < 100; i++) {
+                const emoji = document.createElement('div');
+                emoji.classList.add('emoji');
+                emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = `${Math.random() * 100}vw`;
+                emoji.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                document.body.appendChild(emoji);
 
-        setInterval(createHeart, 300);
+                emoji.addEventListener('animationend', () => {
+                    emoji.remove();
+                });
+            }
+        }
     </script>
 </body>
 </html>
