@@ -111,7 +111,7 @@
     </style>
 </head>
 <body>
-    <audio id="backgroundMusic" autoplay loop>
+    <audio id="backgroundMusic" loop>
         <source src="khairiyat.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -338,22 +338,28 @@ Love you, darshu ma…</p>
         let currentPage = 1;
         const totalPages = document.querySelectorAll('.page').length;
         let loveCount = 2;
+        const audio = document.getElementById('backgroundMusic');
 
         function turnPage() {
             if (currentPage < totalPages) {
                 document.getElementById(`page${currentPage}`).classList.add('turn');
                 currentPage++;
+                if (currentPage === 2) {
+                    audio.play();
+                }
                 if (currentPage === totalPages) {
                     document.getElementById('loveButton').style.display = 'block';
                 }
             } else {
-                
+                // Reset to the first page if it's the last page
                 for (let i = 1; i <= totalPages; i++) {
                     document.getElementById(`page${i}`).classList.remove('turn');
                 }
                 currentPage = 1;
                 document.getElementById('loveButton').style.display = 'none';
                 loveCount = 2;
+                audio.pause();
+                audio.currentTime = 0;
             }
         }
 
@@ -374,15 +380,4 @@ Love you, darshu ma…</p>
                 const emoji = document.createElement('div');
                 emoji.classList.add('emoji');
                 emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                emoji.style.left = `${Math.random() * 100}vw`;
-                emoji.style.animationDuration = `${Math.random() * 2 + 3}s`;
-                document.body.appendChild(emoji);
-
-                emoji.addEventListener('animationend', () => {
-                    emoji.remove();
-                });
-            }
-        }
-    </script>
-</body>
-</html>
+                emoji.style.left = `${Math.random() * ▋
