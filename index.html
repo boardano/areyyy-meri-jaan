@@ -13,6 +13,27 @@
             position: relative;
             height: 100vh;
         }
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
         .book-container {
             position: relative;
             width: 400px;
@@ -38,6 +59,7 @@
             flex-direction: column;
             transform-origin: left;
             transition: transform 1s ease-in-out;
+            backface-visibility: hidden;
         }
         .page img {
             max-width: 90%;
@@ -51,16 +73,16 @@
         }
         .page:nth-child(1) { 
             background: linear-gradient(135deg, #8B0000, #FF6347); 
-            z-index: 3; 
             color: white;
             font-weight: bold;
             font-size: 24px;
+            z-index: 5;
         }
-        .page:nth-child(2) { background: #ffccd5; z-index: 2; }
-        .page:nth-child(3) { background: #ffc2d1; z-index: 1; }
+        .page:nth-child(2) { background: #ffccd5; z-index: 4; }
+        .page:nth-child(3) { background: #ffc2d1; z-index: 3; }
+        .page:nth-child(4) { background: #ffb3c1; z-index: 2; }
         .page.turn {
             transform: rotateY(-180deg);
-            z-index: 0;
         }
         .next-button {
             margin-top: 20px;
@@ -88,6 +110,9 @@
 <body>
     <h1>I Love You ❤️</h1>
     <p>My heart beats for you every second...</p>
+    
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
     <div class="book-container">
         <div class="book" id="book">
             <div class="page" id="page1">
@@ -110,29 +135,23 @@
     <button class="next-button" onclick="turnPage()">Turn Page</button>
     <button class="i-love-you-button" id="loveButton" onclick="increaseLove()">I love you, too</button>
     
-    <audio id="backgroundMusic" loop>
+    <audio id="backgroundMusic" loop autoplay>
         <source src="khairiyat.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <button onclick="document.getElementById('backgroundMusic').play()">Play Song</button>
     
     <script>
         let currentPage = 0;
         let loveCount = 1;
         const pages = document.querySelectorAll(".page");
         const loveButton = document.getElementById("loveButton");
-        const audio = document.getElementById("backgroundMusic");
-        
-        document.body.addEventListener('click', function() {
-            audio.play();
-        }, { once: true });
+        const floatingHearts = document.getElementById("floatingHearts");
 
         function turnPage() {
-            if (currentPage < pages.length) {
+            if (currentPage < pages.length - 1) {
                 pages[currentPage].classList.add("turn");
-                pages[currentPage].style.zIndex = -currentPage;
                 currentPage++;
-                if (currentPage === pages.length) {
+                if (currentPage === pages.length - 1) {
                     loveButton.style.display = "block";
                 }
             } else {
@@ -141,10 +160,7 @@
         }
 
         function resetBook() {
-            pages.forEach((page, index) => {
-                page.classList.remove("turn");
-                page.style.zIndex = pages.length - index;
-            });
+            pages.forEach((page) => page.classList.remove("turn"));
             currentPage = 0;
             loveButton.style.display = "none";
         }
@@ -156,7 +172,22 @@
             } else {
                 loveButton.innerText = `I love you, ${loveCount}`;
             }
+            if (navigator.vibrate) {
+                navigator.vibrate(100);
+            }
         }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerText = Math.random() > 0.5 ? "❤️" : "😘";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+            floatingHearts.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
