@@ -13,11 +13,14 @@
             overflow: hidden;
             position: relative;
             height: 100vh;
+            margin: 0;
         }
         .book-container {
             position: relative;
-            width: 450px; 
-            height: 600px; 
+            width: 90%; /* Adjusted size for responsiveness */
+            max-width: 450px; /* Maximum width */
+            height: 80vh; /* Adjusted height for responsiveness */
+            max-height: 600px; /* Maximum height */
             margin: 20px auto;
             perspective: 1500px;
         }
@@ -40,8 +43,8 @@
             transform-origin: left;
             transition: transform 1s ease-in-out;
             backface-visibility: hidden;
-            padding: 20px;
-            font-size: 16px;
+            padding: 10px; /* Adjusted padding for responsiveness */
+            font-size: 14px; /* Adjusted font size for responsiveness */
             box-sizing: border-box;
             overflow: hidden;
         }
@@ -51,19 +54,19 @@
             border-radius: 10px;
         }
         .page p {
-            font-size: 14px;
-            padding: 10px;
+            font-size: 12px; /* Adjusted font size */
+            padding: 5px; /* Adjusted padding */
             text-align: center;
             margin: 0;
-            line-height: 1.5;
+            line-height: 1.5; /* Adjusted line height */
         }
-        .page:nth-child(1) { background: linear-gradient(135deg, #8B0000, #FF6347); color: white; font-weight: bold; font-size: 22px; z-index: 15; }
+        .page:nth-child(1) { background: linear-gradient(135deg, #8B0000, #FF6347); color: white; font-weight: bold; font-size: 18px; z-index: 15; }
         .page:nth-child(2) { background: #ffccd5; z-index: 14; }
         .page:nth-child(3) { background: #ffc2d1; z-index: 13; }
         .page:nth-child(4) { background: #ffb3c1; z-index: 12; }
         .page:nth-child(5) { background: #ffa6b7; z-index: 11; }
         .page:nth-child(6) { background: #ff94a4; z-index: 10; }
-        .page:nth-child(7) { background: #ff8091; z-index: 9; font-size: 12px; line-height: 1.4; } 
+        .page:nth-child(7) { background: #ff8091; z-index: 9; font-size: 12px; line-height: 1.4; } /* Adjusted font size and line height */
         .page:nth-child(8) { background: #ff6d7f; z-index: 8; }
         .page:nth-child(9) { background: #ff5a6c; z-index: 7; }
         .page:nth-child(10) { background: #ff4759; z-index: 6; }
@@ -350,7 +353,6 @@ Love you, darshu ma…</p>
                     document.getElementById('loveButton').style.display = 'block';
                 }
             } else {
-                
                 for (let i = 1; i <= totalPages; i++) {
                     document.getElementById(`page${i}`).classList.remove('turn');
                 }
