@@ -14,12 +14,16 @@
             position: relative;
             height: 100vh;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .book-container {
             position: relative;
             width: 90%; /* Adjusted size for responsiveness */
             max-width: 450px; /* Maximum width */
-            height: 80vh; /* Adjusted height for responsiveness */
+            height: 70vh; /* Adjusted height for responsiveness */
             max-height: 600px; /* Maximum height */
             margin: 20px auto;
             perspective: 1500px;
@@ -78,8 +82,14 @@
         .page.turn {
             transform: rotateY(-180deg);
         }
-        .next-button {
+        .buttons-container {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .next-button, .love-button {
+            margin-top: 10px;
             padding: 10px 15px;
             font-size: 16px;
             cursor: pointer;
@@ -90,14 +100,6 @@
         }
         .love-button {
             display: none;
-            margin-top: 10px;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #ff4d6d;
-            color: white;
-            border: none;
-            border-radius: 10px;
         }
         @keyframes emoji-shower {
             0% { transform: translateY(-100vh); }
@@ -334,8 +336,10 @@ Love you, darshu ma…</p>
             </div>
         </div>
     </div>
-    <button class="next-button" onclick="turnPage()">Turn Page</button>
-    <button class="love-button" id="loveButton" onclick="incrementLove()">I love you too ❤️</button>
+    <div class="buttons-container">
+        <button class="next-button" onclick="turnPage()">Turn Page</button>
+        <button class="love-button" id="loveButton" onclick="incrementLove()">I love you too ❤️</button>
+    </div>
     <script>
         let currentPage = 1;
         const totalPages = document.querySelectorAll('.page').length;
